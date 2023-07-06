@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,18 @@
   <title>Document</title>
 
   <!-- Link CDN FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
 
   <!-- Link CSS -->
   <link rel="stylesheet" href="style/style.css">
-  
+
 </head>
+
 <body>
-  
+
   <!-- Header Section Start -->
   <header>
     <a href="#" class="logo"><i class="fas fa-utensils"></i> WTC Resto</a>
@@ -38,16 +43,62 @@
   <!-- Header Section End -->
 
   <!-- Search Form Start -->
-
   <form action="" id="search-form">
     <input type="search" placeholder="search here" name="" id="search-box">
     <label for="search-box" class="fas fa-search"></label>
     <i class="fas fa-times" id="close"></i>
   </form>
+  <!-- Search Form Start -->
 
+  <!-- Home Section Start -->
+  <section class="home" id="home">
+    <div class="swiper home-slider">
+      <div class="swiper-wrapper wrapper">
+        <div class="swiper-slide slide">
+          <div class="content">
+            <span>our special dish</span>
+            <h3>spicy noodles</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque, debitis autem doloribus sunt fuga
+              voluptate.</p>
+            <a href="#" class="btn">order now</a>
+          </div>
+          <div class="image">
+            <img src="assets/home-page-1.png" alt="">
+          </div>
+        </div>
 
+        <div class="swiper-slide slide">
+          <div class="content">
+            <span>our special dish</span>
+            <h3>hot pizza</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque, debitis autem doloribus sunt fuga
+              voluptate.</p>
+            <a href="#" class="btn">order now</a>
+          </div>
+          <div class="image">
+            <img src="assets/home-page-2.jpg" alt="">
+          </div>
+        </div>
 
+        <div class="swiper-slide slide">
+          <div class="content">
+            <span>our special dish</span>
+            <h3>grilled chicken</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque, debitis autem doloribus sunt fuga
+              voluptate.</p>
+            <a href="#" class="btn">order now</a>
+          </div>
+          <div class="image">
+            <img src="assets/home-page-3.png" alt="">
+          </div>
+        </div>
+      </div>
 
+      <div class="swiper-pagination"></div>
+      
+    </div>
+  </section>
+  <!-- Home Section End -->
 
 
 
@@ -61,5 +112,7 @@
 
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script src="script/script.js"></script>
+
 </html>
