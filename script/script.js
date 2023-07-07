@@ -1,6 +1,20 @@
 let menu = document.querySelector('#menu-bars');
 let navbar = document.querySelector('.navbar');
 
+const assets = [
+  'assets/dishes-1.png',
+  'assets/dishes-2.png',
+  'assets/dishes-3.png',
+  'assets/dishes-4.png',
+  'assets/dishes-5.png',
+  'assets/dishes-6.png'
+];
+
+assets.forEach((assets, index) => {
+  let element = document.getElementById(`assets-${index + 1}`);
+  element.src = assets;
+});
+
 menu.onclick = () => {
   menu.classList.toggle('fa-times');
   navbar.classList.toggle('active');
@@ -32,3 +46,5 @@ var swiper = new Swiper(".home-slider", {
       },
       loop:true,
     });
+ 
+
