@@ -1,14 +1,34 @@
 let menu = document.querySelector('#menu-bars');
 let navbar = document.querySelector('.navbar');
 
+const homePage = [
+  'assets/home-page-1.png',
+  'assets/home-page-2.jpg',
+  'assets/home-page-3.png'
+];
+
 const assets = [
   'assets/dishes-1.png',
   'assets/dishes-2.png',
   'assets/dishes-3.png',
   'assets/dishes-4.png',
   'assets/dishes-5.png',
-  'assets/dishes-6.png'
+  'assets/dishes-6.png',
 ];
+
+homePage.forEach((homePage, index) => {
+  let element = document.getElementById(`homepage-${index + 1}`);
+  if (element) {
+    let img = new Image();
+    img.src = homePage;
+    img.onload = function() {
+      element.src = img.src;
+    };
+    img.onerror = function() {
+      console.error('Gagal memuat gambar:', img.src);
+    };
+  }
+});
 
 assets.forEach((assets, index) => {
   let element = document.getElementById(`assets-${index + 1}`);
