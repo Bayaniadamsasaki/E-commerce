@@ -1,3 +1,31 @@
+<?php  
+session_start();
+if (isset($_SESSION["login"])) {
+  header("Location: index.php");
+  exit;
+}
+
+
+require "../function.php";
+if (isset($_POST["login"])) {
+  $email = $_POST["email"];
+  $password = $_POST["password"];
+
+  $result = mysqli_query($conn, "SELECT * FROM admin WHERE email = '$email'");
+
+  if (mysqli_num_rows($result)===1) {
+    $row = mysqli_fetch_assoc($result);
+    if (password_verify($password, $row["password"])) {
+      $_SESSION["login"] = true;
+      header("Location: index.php");
+      exit;
+    }
+  }
+  $error = true;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,22 +127,27 @@
                   </div>
                 </div>
               </div>
+              <?php if(isset($error)): ?>
+                <script>
+                  alert("USERNAME ATAU PASSWORD SALAH");
+                </script>
+              <?php endif?>
               <div class="card-body">
                 <form role="form" class="text-start">
                   <div class="input-group input-group-outline my-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control">
                   </div>
                   <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-control">
+                    <label class="form-label" for="password" >Password</label>
+                    <input type="password" name="password" id="password" class="form-control">
                   </div>
                   <div class="form-check form-switch d-flex align-items-center mb-3">
                     <input class="form-check-input" type="checkbox" id="rememberMe" checked>
                     <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
+                    <button type="submit" name="login" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
                   </div>
                   <p class="mt-4 text-sm text-center">
                     Don't have an account?
