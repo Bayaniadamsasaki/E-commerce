@@ -5,7 +5,8 @@ if (isset($_POST["register"])) {
   if (registrasi($_POST) > 0) {
     echo "
         <script>
-            alert('User berhasil di tambahkan')
+            alert('User berhasil di tambahkan');
+            window.location.href = 'sign-in.php';
         </script>
         ";
   } else {
@@ -110,7 +111,7 @@ if (isset($_POST["register"])) {
                   <p class="mb-0">Enter your email and password to register</p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <form role="form" method="post">
                     <div class="input-group input-group-outline mb-3">
                       <label class="form-label" for="username">Username</label>
                       <input type="text" name="username" id="username" class="form-control">

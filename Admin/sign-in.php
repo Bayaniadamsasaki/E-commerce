@@ -133,7 +133,7 @@ if (isset($_POST["login"])) {
                 </script>
               <?php endif?>
               <div class="card-body">
-                <form role="form" class="text-start">
+                <form role="form" class="text-start" method="post">
                   <div class="input-group input-group-outline my-3">
                     <label class="form-label" for="email">Email</label>
                     <input type="email" name="email" id="email" class="form-control">

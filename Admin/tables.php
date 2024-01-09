@@ -7,6 +7,8 @@ if (!isset($_SESSION["login"])) {
 
 require "../function.php";
 
+$produk = Query("SELECT * FROM produk");
+
 ?>
 
 
@@ -218,8 +220,7 @@ require "../function.php";
         <div class="col-12">
           <div class="container mt-4">
             <h2>Daftar Produk</h2>
-            <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addProductModal">Tambah
-              Produk</button>
+            <a href="tambah_product.php" class="btn btn-primary mb-3">Tambah Produk</a>
 
             <!-- Tabel Produk -->
             <table class="table table-striped">
@@ -229,90 +230,41 @@ require "../function.php";
                   <th scope="col">Nama Produk</th>
                   <th scope="col">Harga</th>
                   <th scope="col">Stok</th>
+                  <th scope="col">Deskripsi</th>
+                  <th scope="col">Gambar</th>
                   <th scope="col">Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="">
-                  <th scope="row">1</th>
-                  <td>Produk A</td>
-                  <td>$20.00</td>
-                  <td>50</td>
-                  <td>
-                    <button class="btn btn-warning btn-sm" data-toggle="modal"
-                      data-target="#editProductModal">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                  </td>
-                </tr>
-                <!-- Lorem hjqvfawjsbshjf -->
+                <?php $i = 1; ?>
+                <?php foreach ($produk as $row): ?>
+                  <tr class="">
+
+                    <th scope="row">
+                      <?= $i ?>
+                    </th>
+                    <td>
+                      <?= $row["nama_product"] ?>
+                    </td>
+                    <td>
+                      <?= $row["harga"] ?>
+                    </td>
+                    <td>
+                      <?= $row["stok"] ?>
+                    </td>
+                    <td>
+                      <?= $row["description"] ?>
+                    </td>
+                    <td><img src="imgp/<?= $row["gambar"] ?>" height="100" alt="<?= $row["nama_product"] ?>"></td>
+                    <td>
+                      <a href="edit_produk.php?id=<?= $row["id_product"] ?>" class="btn btn-warning btn-sm">Edit</a>
+                      <a href="hapus_produk.php?id=<?= $row["id_product"] ?>" class="btn btn-danger btn-sm"> Hapus</a>
+                    </td>
+                  </tr>
+                  <?= $i++ ?>
+                <?php endforeach; ?>
               </tbody>
             </table>
-          </div>
-
-          <!-- Modal Tambah Produk -->
-          <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog"
-            aria-labelledby="addProductModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="addProductModalLabel">Tambah Produk</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <!-- Form tambah produk -->
-                  <form>
-                    <div class="form-group">
-                      <label for="productName">Nama Produk:</label>
-                      <input type="text" class="form-control" id="productName" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="productPrice">Harga:</label>
-                      <input type="text" class="form-control" id="productPrice" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="productStock">Stok:</label>
-                      <input type="text" class="form-control" id="productStock" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Modal Edit Produk -->
-          <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog"
-            aria-labelledby="editProductModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="editProductModalLabel">Edit Produk</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <!-- Form edit produk -->
-                  <form>
-                    <div class="form-group">
-                      <label for="editProductName">Nama Produk:</label>
-                      <input type="text" class="form-control" id="editProductName" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="editProductPrice">Harga:</label>
-                      <input type="text" class="form-control" id="editProductPrice" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="editProductStock">Stok:</label>
-                      <input type="text" class="form-control" id="editProductStock" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                  </form>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

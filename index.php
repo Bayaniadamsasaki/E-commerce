@@ -1,3 +1,11 @@
+<?php
+require "function.php";
+
+$produkHead = Query("SELECT * FROM produk limit 3");
+$produk = Query("SELECT * FROM produk")
+
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,50 +62,32 @@
   <section class="home" id="home">
     <div class="swiper home-slider">
       <div class="swiper-wrapper wrapper">
-        <div class="swiper-slide slide">
-          <div class="content">
-            <span>our special dish</span>
-            <h3>spicy noodles</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque, debitis autem doloribus sunt fuga
-              voluptate.</p>
-            <a href="#" class="btn">order now</a>
-          </div>
-          <div class="image">
-            <img src="#" id="homepage-1" alt="">
-          </div>
-        </div>
-
-        <div class="swiper-slide slide">
-          <div class="content">
-            <span>our special dish</span>
-            <h3>hot pizza</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque, debitis autem doloribus sunt fuga
-              voluptate.</p>
-            <a href="#" class="btn">order now</a>
-          </div>
-          <div class="image">
-            <img src="#" id="homepage-2" alt="">
-          </div>
-        </div>
-
-        <div class="swiper-slide slide">
-          <div class="content">
-            <span>our special dish</span>
-            <h3>grilled chicken</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque, debitis autem doloribus sunt fuga
-              voluptate.</p>
-            <a href="#" class="btn">order now</a>
-          </div>
-          <div class="image">
-            <img src="#" id="homepage-3" alt="">
-          </div>
-        </div>
+        <?php if (!empty($produkHead)): ?>
+          <?php foreach ($produkHead as $row): ?>
+            <div class="swiper-slide slide">
+              <div class="content">
+                <span>our special dish</span>
+                <h3>
+                  <?= $row["nama_product"] ?>
+                </h3>
+                <p>
+                  <?= $row["description"] ?>
+                </p>
+                <a href="#" class="btn">order now</a>
+              </div>
+              <div class="image">
+                <img src="Admin/imgp/<?= $row["gambar"] ?>" id="homepage-1" alt="">
+              </div>
+            </div>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <p>No products available.</p>
+        <?php endif; ?>
       </div>
-
       <div class="swiper-pagination"></div>
-      
     </div>
   </section>
+
   <!-- Home Section End -->
 
   <!-- Dishes Section Start -->
@@ -106,101 +96,27 @@
     <h1 class="heading">popular dishes</h1>
 
     <div class="box-container">
-      <div class="box">
-        <a href="#" class="fas fa-heart"></a>
-        <a href="#" class="fas fa-eye"></a>
-        <img id="assets-1" src="" alt="">
-        <h3>tasty food</h3>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
+      <?php foreach ($produk as $row): ?>
+        <div class="box">
+          <a href="#" class="fas fa-heart"></a>
+          <a href="#" class="fas fa-eye"></a>
+          <img id="" src="Admin/imgp/<?= $row["gambar"] ?>" alt="">
+          <h3>
+            <?= $row["nama_product"] ?>
+          </h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <span>
+            <?= $row["harga"] ?>
+          </span>
+          <a href="#" class="btn">add to cart</a>
         </div>
-        <span>$15.99</span>
-        <a href="#" class="btn">add to cart</a>
-      </div>
-
-      <div class="box">
-        <a href="#" class="fas fa-heart"></a>
-        <a href="#" class="fas fa-eye"></a>
-        <img id="assets-2" src="" alt="">
-        <h3>tasty food</h3>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-        </div>
-        <span>$15.99</span>
-        <a href="#" class="btn">add to cart</a>
-      </div>
-
-      <div class="box">
-        <a href="#" class="fas fa-heart"></a>
-        <a href="#" class="fas fa-eye"></a>
-        <img id="assets-3" src="" alt="">
-        <h3>tasty food</h3>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-        </div>
-        <span>$15.99</span>
-        <a href="#" class="btn">add to cart</a>
-      </div>
-
-      <div class="box">
-        <a href="#" class="fas fa-heart"></a>
-        <a href="#" class="fas fa-eye"></a>
-        <img id="assets-4" src="" alt="">
-        <h3>tasty food</h3>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-        </div>
-        <span>$15.99</span>
-        <a href="#" class="btn">add to cart</a>
-      </div>
-
-      <div class="box">
-        <a href="#" class="fas fa-heart"></a>
-        <a href="#" class="fas fa-eye"></a>
-        <img id="assets-5" src="" alt="">
-        <h3>tasty food</h3>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-        </div>
-        <span>$15.99</span>
-        <a href="#" class="btn">add to cart</a>
-      </div>
-
-      <div class="box">
-        <a href="#" class="fas fa-heart"></a>
-        <a href="#" class="fas fa-eye"></a>
-        <img id="assets-6" src="" alt="">
-        <h3>tasty food</h3>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-        </div>
-        <span>$15.99</span>
-        <a href="#" class="btn">add to cart</a>
-      </div>
+      <?php endforeach ?>
     </div>
   </section>
   <!-- Dishes Section End -->
@@ -217,27 +133,30 @@
 
       <div class="content">
         <h3>best food in the country</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam ratione eaque corrupti minima molestiae eum iste distinctio accusantium asperiores sunt omnis veniam accusamus architecto velit, ea, dolorem id blanditiis enim!</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium similique libero quae delectus totam inventore suscipit alias quod consectetur eaque.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam ratione eaque corrupti minima molestiae
+          eum iste distinctio accusantium asperiores sunt omnis veniam accusamus architecto velit, ea, dolorem id
+          blanditiis enim!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium similique libero quae delectus totam
+          inventore suscipit alias quod consectetur eaque.</p>
 
-          <div class="icons-container">
-            <div class="icons">
-              <i class="fas fa-shipping-fast">
-                <span>free delivery</span>
-              </i>
-            </div>
-            <div class="icons">
-              <i class="fas fa-dollar-sign">
-                <span>easy payments</span>
-              </i>
-            </div>
-            <div class="icons">
-              <i class="fas fa-headset">
-                <span>24/7 service</span>
-              </i>
-            </div>
+        <div class="icons-container">
+          <div class="icons">
+            <i class="fas fa-shipping-fast">
+              <span>free delivery</span>
+            </i>
           </div>
-          <a href="#" class="btn">learn more</a>
+          <div class="icons">
+            <i class="fas fa-dollar-sign">
+              <span>easy payments</span>
+            </i>
+          </div>
+          <div class="icons">
+            <i class="fas fa-headset">
+              <span>24/7 service</span>
+            </i>
+          </div>
+        </div>
+        <a href="#" class="btn">learn more</a>
       </div>
     </div>
   </sectiom>qabout
