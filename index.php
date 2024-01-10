@@ -62,29 +62,48 @@ $produk = Query("SELECT * FROM produk")
   <section class="home" id="home">
     <div class="swiper home-slider">
       <div class="swiper-wrapper wrapper">
-        <?php if (!empty($produkHead)): ?>
-          <?php foreach ($produkHead as $row): ?>
-            <div class="swiper-slide slide">
-              <div class="content">
-                <span>our special dish</span>
-                <h3>
-                  <?= $row["nama_product"] ?>
-                </h3>
-                <p>
-                  <?= $row["description"] ?>
-                </p>
-                <a href="#" class="btn">order now</a>
-              </div>
-              <div class="image">
-                <img src="Admin/imgp/<?= $row["gambar"] ?>" id="homepage-1" alt="">
-              </div>
-            </div>
-          <?php endforeach; ?>
-        <?php else: ?>
-          <p>No products available.</p>
-        <?php endif; ?>
+        <div class="swiper-slide slide">
+          <div class="content">
+            <span>our special dish</span>
+            <h3>spicy noodles</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque, debitis autem doloribus sunt fuga
+              voluptate.</p>
+            <a href="#" class="btn">order now</a>
+          </div>
+          <div class="image">
+            <img src="#" id="homepage-1" alt="">
+          </div>
+        </div>
+
+        <div class="swiper-slide slide">
+          <div class="content">
+            <span>our special dish</span>
+            <h3>hot pizza</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque, debitis autem doloribus sunt fuga
+              voluptate.</p>
+            <a href="#" class="btn">order now</a>
+          </div>
+          <div class="image">
+            <img src="#" id="homepage-2" alt="">
+          </div>
+        </div>
+
+        <div class="swiper-slide slide">
+          <div class="content">
+            <span>our special dish</span>
+            <h3>grilled chicken</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque, debitis autem doloribus sunt fuga
+              voluptate.</p>
+            <a href="#" class="btn">order now</a>
+          </div>
+          <div class="image">
+            <img src="#" id="homepage-3" alt="">
+          </div>
+        </div>
       </div>
+
       <div class="swiper-pagination"></div>
+      
     </div>
   </section>
 
@@ -122,7 +141,7 @@ $produk = Query("SELECT * FROM produk")
   <!-- Dishes Section End -->
 
   <!-- About Section Start -->
-  <sectiom class="about" id="about">
+  <section class="about" id="about">
     <h3 class="sub-heading">about us</h3>
     <h1 class="heading">why choose us?</h1>
 
@@ -159,14 +178,8 @@ $produk = Query("SELECT * FROM produk")
         <a href="#" class="btn">learn more</a>
       </div>
     </div>
-  </sectiom>qabout
+  </section>
   <!-- About Section End -->
-
-
-
-
-
-
 
 
 
