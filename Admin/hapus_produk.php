@@ -1,5 +1,12 @@
 <?php  
+session_start();
+if (!isset($_SESSION["login"])) {
+  header("Location: sign-in.php");
+  exit;
+}
+
 require "../function.php";
+
 
 $id = $_GET["id"];
 
