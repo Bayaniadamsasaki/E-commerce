@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 09, 2024 at 08:27 PM
+-- Generation Time: Jan 12, 2024 at 01:57 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -32,9 +32,9 @@ CREATE TABLE `admin` (
   `email` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---    
+--
 -- Dumping data for table `admin`
 --
 
@@ -61,9 +61,11 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_product`, `nama_product`, `harga`, `stok`, `description`, `gambar`) VALUES
-(4, 'baju elin', 300000, 52, 'sangat enakapalagi ada boba-bobanya uwu', '659da82d913c5.jpg'),
+(4, 'baju Marsha', 300000, 52, 'Calon istri ke-5 Andika Bintang Nursalih', '65a07de4c2ffb.jpg'),
 (5, 'baju ashel', 29000000, 21, 'sangat enakapalagi ada boba-bobanya uwu', '659da9bf7fa91.jpg'),
-(6, 'baju zee', 300000, 22, 'sangat enakapalagi ada boba-bobanya uwu', '659dab527ffa9.jpg');
+(6, 'baju Freya', 300000, 22, 'Calon istri ke-6 Andika Bintang Nursalih', '65a07d7330b50.jpg'),
+(7, 'baju Christy', 400000, 22, 'Ini adalah calon instri andika bintang nursalih', '65a07db2f2e64.jpg'),
+(8, 'Baju Raiden Ei', 7000000, 1, 'sangat enakapalagi ada boba-bobanya uwu', '65a07ea061848.jpg');
 
 --
 -- Indexes for dumped tables
@@ -95,7 +97,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_product` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_product` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
